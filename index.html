@@ -22,7 +22,7 @@
         </div>
     </header>
 
-    <div id="location-search-content">
+    <div class="location-search-content">
         <div class="main-screen">
             <img src="./logo-image/weather-forecast.png" alt="logo-image" class="logo-image">
 
@@ -39,26 +39,25 @@
         </div>
     </div>
 
-    <div id="result-screen" style="display: none">
-        <div id="result-content">
+    <div class="result-screen">
+        <div class="result-content">
           <div id="return-btn">
             <i class="fa-solid fa-rotate-left"></i>
           </div>
 
-          <div id="result-summary">
+          <div class="result-summary">
             <div class="summary-item">
               <div id="result-temp">49°</div>
               <div id="result-place">London, GB</div>
               <button id="convert-units-btn">F°</button>
             </div>
             <div class="summary-item">
-              <div>
                 <div id="result-weather">Clear Skies</div>
                 <div id="result-weather-desc">Clear Skies</div>
-              </div>
             </div>
           </div>
-          <div id="result-details">
+
+          <div class="result-details">
             <div class="details-item">
               <h2>Feels like</h2>
               <p id="result-feeling">25</p>
@@ -76,6 +75,8 @@
               <p id="result-wind-speed">50</p>
             </div>
           </div>
+
+          <button id="open-details-btn">Weather details</button>
         </div>
     </div>
 
