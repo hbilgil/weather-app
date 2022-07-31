@@ -87,7 +87,7 @@ a:hover {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: calc(80vh - 5em);
+    height: calc(83vh - 5em);
     background-image: linear-gradient(130deg, azure, lavender);
 }
 
@@ -127,7 +127,6 @@ input, .form-button {
 input[type="search"] {
   outline: 0;
   width: 100%;
-  /*background: var(--color-light);*/
   background-color: var(--color-dark);
   color: var(--color-light);
   padding: 0 1.6rem;
@@ -175,6 +174,38 @@ label {
     color: red;
     font-weight: 800;
     font-size: 1.5rem;
+}
+
+/*-----FOOTER DIV-----*/
+
+.footer {
+    font-size: 20px;
+    font-weight: 800;
+    text-align: center;
+    padding: 5px;
+    background-image: linear-gradient(to right, #87cefa, #69a8ec, #687ed5, #7550b2, #800080);
+    color: white;
+}
+  
+.footer a:link { 
+    text-decoration: none;
+    color: white;
+}
+  
+.footer a:visited { 
+    text-decoration: none;
+    color: white;
+}
+  
+.footer a:hover { 
+    text-decoration: none;
+    transition: 0.3s ease;
+    color:lightgreen;
+}
+  
+.footer a:active { 
+    text-decoration: none;
+    color: white;
 }
 
 @keyframes sliding-background {
