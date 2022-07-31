@@ -23,27 +23,20 @@
     </header>
 
     <div id="location-search-content">
-        <div id="main-screen">
-            <div id="logo">
-                <img src="./logo-image/weather-forecast.png" alt="logo-image" class="logo-image">
-            </div>
-  
+        <div class="main-screen">
+            <img src="./logo-image/weather-forecast.png" alt="logo-image" class="logo-image">
+
             <div id="weather-form">
-                <div class="form-div">
-                    <input
-                        type="text"
-                        name="search-input"
-                        id="search-input"
-                        placeholder="Search a city"
-                    >
-                    <div id="search-button">
-                        <i class="fa-solid fa-magnifying-glass-location"></i>
-                    </div>
-                </div>
-                <p id="error" style="display: none;"></p> 
+
+                <form onsubmit="event.preventDefault();" role="search">
+                    <label for="search">Search for stuff</label>
+                    <input id="search" type="search" placeholder="Search for a city" autofocus required />
+                    <button type="submit" class="form-button">Go</button>    
+                </form>
+
+                <p id="error" style="display: none">Error</p>
             </div>
         </div>
-
     </div>
 
     <div id="result-screen" style="display: none">
@@ -98,7 +91,7 @@
 
     <div class="overlay-window" id="overlay-window"></div> <!--the overlay window will be invisible until it is invoked by JavaScript function dynamically-->
 
-    <div class="city-forecast-info-modal" id="city-forecast-info-modal"> <!--the project add modal will be invisible until it is invoked by JavaScript function dynamically-->
+    <div class="city-forecast-info-modal" id="city-forecast-info-modal" style="display: none"> <!--the project add modal will be invisible until it is invoked by JavaScript function dynamically-->
             
         <h2 class="city-forecast--info-modal-heading">Weather Details</h2>
             
