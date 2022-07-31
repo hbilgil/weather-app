@@ -14,6 +14,18 @@
     margin: 0;
 }
 
+:root {
+    --rad: .7rem;
+    --dur: .3s;
+    --color-dark: #2f2f2f;
+    --color-light: #fff;
+    --color-brand: #57bd84;
+    --font-fam: 'Lato', sans-serif;
+    --height: 5rem;
+    --btn-width: 6rem;
+    --bez: cubic-bezier(0, 0, 0.43, 1.49);
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -21,6 +33,9 @@ body {
     justify-content: space-between;
     font-family: 'Nunito', sans-serif;
 }
+
+/*---HEADER DIV---*/
+
 .header {
     -webkit-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
     -moz-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
@@ -57,6 +72,7 @@ a[href="https://www.flaticon.com/free-icons/season"] {
     font-family: 'Mulish', sans-serif;
     text-decoration: none;
     color: blue;
+    transition: 0.3s ease;
 }
 
 a:hover {
@@ -64,6 +80,102 @@ a:hover {
     transition: 0.3s ease;
 }
 
+/*---MAIN DIV---*/
+
+#location-search-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(80vh - 5em);
+    background-image: linear-gradient(130deg, azure, lavender);
+}
+
+.main-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: calc(10vw - 50px);
+}
+
+.logo-image {
+    width: 300px;
+    height: auto;
+}
+
+#weather-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+form {
+  position: relative;
+  width: calc(40vw - 15px);
+  background: var(--color-brand);
+  border-radius: var(--rad);
+}
+
+input, .form-button {
+  height: var(--height);
+  font-family: var(--font-fam);
+  border: 0;
+  color: var(--color-dark);
+}
+
+input[type="search"] {
+  outline: 0;
+  width: 100%;
+  /*background: var(--color-light);*/
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  padding: 0 1.6rem;
+  border-radius: var(--rad);
+  appearance: none;
+  transition: all var(--dur) var(--bez);
+  transition-property: width, border-radius;
+  z-index: 1;
+  position: relative;
+  font-size: 2vw;
+}
+
+.form-button {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: var(--btn-width);
+  font-weight: bold;
+  background: var(--color-brand);
+  border-radius: 0 var(--rad) var(--rad) 0;
+  font-size: 2vw;
+}
+
+input:not(:placeholder-shown) {
+  border-radius: var(--rad) 0 0 var(--rad);
+  width: calc(100% - var(--btn-width));
+}
+
+input:not(:placeholder-shown) + button {
+  display: block;
+}
+
+label {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+#error {
+    color: red;
+    font-weight: 800;
+    font-size: 1.5rem;
+}
 
 @keyframes sliding-background {
     0%,
@@ -72,5 +184,33 @@ a:hover {
     }
     50% {
         background-position: 100% 40%;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .app-header {
+        animation: sliding-background 20s linear infinite;
+    }
+
+    .header-title {
+        font-size: 10vw;
+    }
+
+    .main-screen {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    form {
+        width: 350px;
+    }
+
+    input[type="search"] {
+        font-size: 3vw;
+      }
+
+    .form-button {
+        font-size: 4vw;
     }
 }
