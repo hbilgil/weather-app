@@ -45,7 +45,7 @@ body {
 }
 
 .app-header {
-    background: url(./robert-lukeman-_RBcxo9AU-U-unsplash.jpg) center;
+    background: url(./images/robert-lukeman-_RBcxo9AU-U-unsplash.jpg) center;
     height: 20vh;
     width: 100vw;
     animation: sliding-background 100s linear infinite;
@@ -85,13 +85,17 @@ a:hover {
 
 /*---MAIN DIV---*/
 
-#location-search-content {
+.location-search-content {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: calc(83vh - 5em);
     background-image: linear-gradient(130deg, azure, lavender);
+}
+
+.location-search-content.passive {
+    display: none;
 }
 
 .main-screen {
@@ -177,6 +181,152 @@ label {
     color: red;
     font-weight: 800;
     font-size: 1.5rem;
+}
+
+.result-screen {
+    display: none;
+}
+
+.result-screen.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(83vh - 5em);
+    justify-content: center;
+    background: url(./images/Eskisehir-porsuk-cayi-tekne.jpeg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.result-content {
+    position: relative;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 2rem;
+    gap: 1em;
+    background-color: rgba(0, 0, 0, 0.779);
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    width: calc(50vw - 20px);
+    height: calc(50vh - 20px);
+    z-index: 1;
+    color: white;
+}
+
+#return-btn {
+    width: 3rem;
+    height: 3rem;
+    position: absolute;
+    right: -0.5em;
+    top: -0.5em;
+    border-radius: 50%;
+    background-color:deepskyblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fa-rotate-left {
+    filter: invert(100%) sepia(0%) saturate(7078%) hue-rotate(121deg) brightness(120%) contrast(111%);
+    cursor: pointer;
+    transition: filter 0.3s ease;
+}
+
+.fa-rotate-left:hover {
+    filter: invert(58%) sepia(21%) saturate(2614%) hue-rotate(298deg) brightness(105%) contrast(102%);
+}
+
+.result-summary {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+}
+
+#result-temp {
+    font-size: 6vw;
+}
+
+#result-weather {
+    font-size: 4vw;
+}
+
+.summary-item {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+}
+
+.summary-item:last-child {
+    border-left: 2px solid var(--color-light);
+}
+
+.result-details {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.details-item h2 {
+    color: var(--color-brand);
+    font-size: 1em;
+    margin: 0;
+}
+
+.details-item p {
+    margin: 0;
+}  
+
+#convert-units-btn {
+    position: absolute;
+    left: 0.5em;
+    top: 0.5em;
+    background-color:deepskyblue;
+    color: var(--color-light);
+    border: 0;
+    border-radius: 50%;
+    outline: 0;
+    font-size: 2em;
+    width: 2em;
+    height: 2em;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+#convert-units-btn:hover {
+    color:hotpink;
+}
+
+#open-details-btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-light);
+    border: 0;
+    border-radius: 0 0 2rem 2rem;
+    outline: 0;
+    font-size: 1.5vw;
+    width: 100%;
+    height: calc(5vh - 5px);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+#open-details-btn:hover {
+    color:hotpink;
 }
 
 /*-----FOOTER DIV-----*/
@@ -330,5 +480,14 @@ label {
 
     .city-forecast-info-modal {
         height: calc(40vh - 20px);
+    }
+
+    .result-content {
+        width: 60%;
+        height: 70%;
+    }
+
+    #open-details-btn {
+        font-size: 2.5vw;
     }
 }
