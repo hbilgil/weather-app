@@ -46,6 +46,46 @@
 
     </div>
 
+    <div id="result-screen" style="display: none">
+        <div id="result-content">
+          <div id="return-btn">
+            <i class="fa-solid fa-rotate-left"></i>
+          </div>
+
+          <div id="result-summary">
+            <div class="summary-item">
+              <div id="result-temp">49°</div>
+              <div id="result-place">London, GB</div>
+              <button id="convert-units-btn">F°</button>
+            </div>
+            <div class="summary-item">
+              <div>
+                <div id="result-weather">Clear Skies</div>
+                <div id="result-weather-desc">Clear Skies</div>
+              </div>
+            </div>
+          </div>
+          <div id="result-details">
+            <div class="details-item">
+              <h2>Feels like</h2>
+              <p id="result-feeling">25</p>
+            </div>
+            <div class="details-item">
+              <h2>Humidity</h2>
+              <p id="result-humidity">5</p>
+            </div>
+            <div class="details-item">
+              <h2>Chance of Rain</h2>
+              <p id="result-chance-of-rain">60%</p>
+            </div>
+            <div class="details-item">
+              <h2>Wind Speed</h2>
+              <p id="result-wind-speed">50</p>
+            </div>
+          </div>
+        </div>
+    </div>
+
     <footer class="footer">
         <p>
             Copyright ©
@@ -64,16 +104,28 @@
             
         <div class="city-forecast-info-modal-text">
 
-            <p class="city-forecast-info-modal-min-temp-para" data-city-card-min-temp></p>
+            <div class="city-forecast-info-modal-min-temp-div">
+                <h2>Min temp</h2>
+                <p id="result-mintemp" data-city-card-min-temp>20</p>
+            </div>
 
-            <p class="city-forecast-info-modal-max-temp-para" data-city-card-max-temp></p>
-            
-            <p class="city-forecast-info-modal-visibility-para" data-city-card-visibility></p>    
+            <div class="city-forecast-info-modal-max-temp-div">
+                <h2>Max temp</h2>
+                <p id="result-maxtemp" data-city-card-max-temp>29</p>
+            </div>
 
-            <p class="city-forecast-info-modal-cloudiness-para" data-city-card-cloudiness></p> 
+            <div class="city-forecast-info-modal-visibility-div">
+                <h2>Visibility</h2>
+                <p id="result-visibility" data-city-card-visibility>5</p>
+            </div>
+
+            <div class="city-forecast-info-modal-cloudiness-div">
+                <h2>Cloudiness</h2>
+                <p id="result-cloudiness" data-city-card-cloudiness>50%</p>
+            </div>
 
             <div class="city-forecast-info-modal-weekly-forecast-div" data-city-card-weekly-forecast>
-                
+               
             </div>
 
         </div>
