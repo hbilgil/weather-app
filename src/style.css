@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
 
+@import url("https://fonts.googleapis.com/css?family=Montserrat:900");
+
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Mulish:wght@700&display=swap');
 
 /*-----GLOBAL DECLARATIONS-----*/
 
@@ -17,4 +20,57 @@ body {
     justify-items: space-between;
     justify-content: space-between;
     font-family: 'Nunito', sans-serif;
+}
+.header {
+    -webkit-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+    -moz-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+    box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+}
+
+.app-header {
+    background: url(./robert-lukeman-_RBcxo9AU-U-unsplash.jpg) center;
+    height: 20vh;
+    width: 100vw;
+    animation: sliding-background 100s linear infinite;
+    text-align: center;
+}
+
+.header-title {
+    font-family: 'Montserrat', sans-serif;
+    background: whitesmoke;
+    color: #000;
+    font-size: 8vw;
+    letter-spacing: 1vw;
+    line-height: 20vh;
+    margin: 0;
+    mix-blend-mode: lighten;
+}
+
+.logo-copyright {
+    text-align: center;
+    font-weight: 800;
+    background-color:lightgreen;
+}
+
+a[href="https://www.flaticon.com/free-icons/season"] {
+    font-family: 'Carter One', cursive;
+    font-family: 'Mulish', sans-serif;
+    text-decoration: none;
+    color: blue;
+}
+
+a:hover {
+    color: whitesmoke;
+    transition: 0.3s ease;
+}
+
+
+@keyframes sliding-background {
+    0%,
+    100% {
+        background-position: 0 40%;
+    }
+    50% {
+        background-position: 100% 40%;
+    }
 }
