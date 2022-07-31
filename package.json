@@ -1,0 +1,24 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "A weather forecast site using the weather API of OpenWeather: It lets the user toggle displaying the data in Fahrenheit or Celsius and fetch nice place photo of searched city while changing the background page according to the weather conditions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hbilgil/weather-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hbilgil/weather-app/issues"
+  },
+  "homepage": "https://github.com/hbilgil/weather-app#readme",
+  "devDependencies": {
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
