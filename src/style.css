@@ -4,6 +4,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Mulish:wght@700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@700&display=swap');
+
 /*-----GLOBAL DECLARATIONS-----*/
 
 *,
@@ -59,6 +61,7 @@ body {
     line-height: 20vh;
     margin: 0;
     mix-blend-mode: lighten;
+    text-shadow: 6px 3px 7px rgba(106, 105, 105, 0.58);
 }
 
 .logo-copyright {
@@ -208,6 +211,86 @@ label {
     color: white;
 }
 
+/*-----HIDDEN PARTS-----*/
+
+/*--Overlay Window--*/
+
+.overlay-window {
+    display: none; /*invisible when inactive*/
+    position: absolute; /*the div will be fixed even if mouse scrolled down*/
+    top: 0; /*exact place of the div*/
+    left: 0; /*exact place of the div*/
+    width: 100%;
+    height: 100%;
+    background-color:dimgray;
+    opacity: 0.8;
+}
+
+.overlay-window.active {
+    display: block;
+}
+
+.city-forecast-info-modal {
+    position: fixed;
+    width: calc(80vw - 20px);
+    height: calc(61vh - 20px);
+    z-index: 1; /*the div will be in front of the overlayWindow*/
+    top: 50%; /*exact place of the div*/
+    left: 50%; /*exact place of the div*/
+    border-radius: 2px;
+    background-color:lightsteelblue;
+    user-select: none;
+    transform: translate(-50%, -50%) scale(0); /*will be animated*/
+    transition: 200ms ease-in-out;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+}
+
+.city-forecast-info-modal-heading {
+    font-family: 'Mulish', sans-serif;
+    font-size: 5vw;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.city-forecast-info-modal-flex-1-heading,
+.city-forecast-info-modal-flex-2-heading {
+    font-family: 'Mulish', sans-serif;
+    font-size: 2vw;
+    background-image: linear-gradient(to right, #87cefa, #69a8ec, #687ed5, #7550b2, #800080);
+    width: 100%;
+    text-align: center;
+    color: white;
+    padding: 10px;
+}
+
+.city-forecast-info-modal-flex-1,
+.city-forecast-info-modal-weekly-flex-2 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+}
+
+.city-forecast-info-modal-flex-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-right: 2px solid gainsboro;
+    padding-right: 20px;
+    font-size: 1vw;
+}
+
+.city-forecast-info-modal-flex-item:nth-child(7) {
+    border-right: none;
+}
+
+.city-forecast-info-modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
 @keyframes sliding-background {
     0%,
     100% {
@@ -243,5 +326,9 @@ label {
 
     .form-button {
         font-size: 4vw;
+    }
+
+    .city-forecast-info-modal {
+        height: calc(40vh - 20px);
     }
 }
