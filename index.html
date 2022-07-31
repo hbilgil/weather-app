@@ -4,9 +4,82 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Forecast</title>
+    <link rel="shortcut icon" href="./logo-image/weather-forecast.png" />
+    <script src="https://kit.fontawesome.com/8fc16b2efe.js" crossorigin="anonymous"></script>
+    <title>Weather Forecast App</title>
 </head>
 <body>
+
+    <header class="header">
+        <div class="app-header">
+            <h1 class="header-caption"><span>Weather</span> App</h1>
+        </div>
+
+        <div class="logo-copyright">
+            <p>Season icons created by
+                <a href="https://www.flaticon.com/free-icons/season" target="_blank"> Eucalyp - Flaticon</a>
+            </p>
+        </div>
+    </header>
+
+    <div id="location-search-content">
+        <div id="main-screen">
+            <div id="logo">
+                <img src="./logo-image/weather-forecast.png" alt="logo-image" class="logo-image">
+            </div>
+  
+            <div id="weather-form">
+                <div class="form-div">
+                    <input
+                        type="text"
+                        name="search-input"
+                        id="search-input"
+                        placeholder="Search a city"
+                    >
+                    <div id="search-button">
+                        <i class="fa-solid fa-magnifying-glass-location"></i>
+                    </div>
+                </div>
+                <p id="error" style="display: none;"></p> 
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <p>
+            Copyright ©
+            <script>
+                document.write(new Date().getFullYear()) 
+            </script>  <!--the date is loaded by JavaScript methods dinamically-->
+            <a href="https://github.com/hbilgil" target="_blank"> Halil Bilgil </a> <!--Please have a look at my github account and like my content.Thanks!..-->
+        </p>
+    </footer>
+
+    <div class="overlay-window" id="overlay-window"></div> <!--the overlay window will be invisible until it is invoked by JavaScript function dynamically-->
+
+    <div class="city-forecast-info-modal" id="city-forecast-info-modal"> <!--the project add modal will be invisible until it is invoked by JavaScript function dynamically-->
+            
+        <h2 class="city-forecast--info-modal-heading">Weather Details</h2>
+            
+        <div class="city-forecast-info-modal-text">
+
+            <p class="city-forecast-info-modal-min-temp-para" data-city-card-min-temp></p>
+
+            <p class="city-forecast-info-modal-max-temp-para" data-city-card-max-temp></p>
+            
+            <p class="city-forecast-info-modal-visibility-para" data-city-card-visibility></p>    
+
+            <p class="city-forecast-info-modal-cloudiness-para" data-city-card-cloudiness></p> 
+
+            <div class="city-forecast-info-modal-weekly-forecast-div" data-city-card-weekly-forecast>
+                
+            </div>
+
+        </div>
+        
+    </div>
+
     <script src="main.js"></script>
 </body>
 </html>
