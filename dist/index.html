@@ -31,7 +31,7 @@
                 <form role="search" data-search-form>
                     <label for="search">Search for stuff</label>
                     <input id="search" type="search" placeholder="Search for a city" autofocus required />
-                    <button type="submit" class="form-button">Go</button>    
+                    <button type="submit" class="form-button" id="search-button">Go</button>    
                 </form>
 
                 <p id="error" class="error">City can not be founded!</p>
@@ -47,39 +47,39 @@
 
             <div class="result-summary">
                 <div class="summary-item">
-                    <div id="result-temp">49°</div>
-                    <div id="result-place">London, GB</div>
+                    <div id="result-temp"></div>
+                    <div id="result-place"></div>
                     <button id="convert-units-btn" class="convert-units-btn">C°</button>
                 </div>
 
                 <div class="summary-item">
                     <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/01d.svg" id="result-weather">
-                    <div id="result-weather-desc">Clear Skies</div>
+                    <div id="result-weather-desc"></div>
                 </div>
             </div>
 
             <div class="result-details">
                 <div class="details-item">
                     <h2>Feels like</h2>
-                    <p id="result-feeling">25</p>
+                    <p id="result-feeling"></p>
                 </div>
                 <div class="details-item">
                     <h2>Humidity</h2>
-                    <p id="result-humidity">5</p>
+                    <p id="result-humidity"></p>
                 </div>
                 <div class="details-item">
                     <h2>Chance of Rain</h2>
-                    <p id="result-chance-of-rain">60%</p>
+                    <p id="result-chance-of-rain"></p>
                 </div>
                 <div class="details-item">
                     <h2>Wind Speed</h2>
-                    <p id="result-wind-speed">50</p>
+                    <p id="result-wind-speed"></p>
                 </div>
             </div>
 
             <button id="open-details-btn">Weather details</button>
         </div>
-        <p class="city-name" data-city-name>Eskişehir</p>
+        <p class="city-name" data-city-name></p>
     </div>
 
     <footer class="footer">
@@ -98,7 +98,7 @@
             
         <h2 class="city-forecast-info-modal-heading">Weather Details</h2>
 
-        <div class="result-weather-detail" data-city-card-detail>Clear Skies</div>
+        <div class="result-weather-detail" data-city-card-detail></div>
 
         <h2 class="city-forecast-info-modal-flex-1-heading">More details</h2>
             
@@ -106,37 +106,37 @@
 
             <div class="city-forecast-info-modal-flex-item">
                 <h2>Min temp</h2>
-                <p id="result-mintemp" data-city-card-min-temp>20</p>
+                <p id="result-mintemp" data-city-card-min-temp></p>
             </div>
 
             <div class="city-forecast-info-modal-flex-item">
                 <h2>Max temp</h2>
-                <p id="result-maxtemp" data-city-card-max-temp>29</p>
+                <p id="result-maxtemp" data-city-card-max-temp></p>
             </div>
 
             <div class="city-forecast-info-modal-flex-item">
                 <h2>Visibility</h2>
-                <p id="result-visibility" data-city-card-visibility>5</p>
+                <p id="result-visibility" data-city-card-visibility></p>
             </div>
 
             <div class="city-forecast-info-modal-flex-item">
                 <h2>Cloudiness</h2>
-                <p id="result-cloudiness" data-city-card-cloudiness>50%</p>
+                <p id="result-cloudiness" data-city-card-cloudiness></p>
             </div>
 
             <div class="city-forecast-info-modal-flex-item">
                 <h2>Sunrise</h2>
-                <p id="result-sunrise" data-city-card-sun-rise>7:07</p>
+                <p id="result-sunrise" data-city-card-sun-rise></p>
             </div>
 
             <div class="city-forecast-info-modal-flex-item">
                 <h2>Sunset</h2>
-                <p id="result-sunset" data-city-card-sun-set>22:07</p>
+                <p id="result-sunset" data-city-card-sun-set></p>
             </div>
 
             <div class="city-forecast-info-modal-flex-item">
                 <h2>Pressure</h2>
-                <p id="result-pressure" data-city-card-pressure>1014 hPa</p>
+                <p id="result-pressure" data-city-card-pressure></p>
             </div>
 
         </div>
@@ -145,38 +145,38 @@
 
         <div class="city-forecast-info-modal-weekly-flex-2">
             <div class="city-forecast-info-modal-flex-item">
-                <h2 data-city-forecast-day1>Monday</h2>
-                <p data-city-forecast-value1>20</p>
+                <h2 data-city-forecast-day1></h2>
+                <p data-city-forecast-value1></p>
             </div>
 
             <div class="city-forecast-info-modal-flex-item">
-                <h2 data-city-forecast-day2>Tuesday</h2>
-                <p data-city-forecast-value2>29</p>
+                <h2 data-city-forecast-day2></h2>
+                <p data-city-forecast-value2></p>
             </div>
 
             <div class="city-forecast-info-modal-flex-item">
-                <h2 data-city-forecast-day3>Wednesday</h2>
-                <p data-city-forecast-value3>5</p>
+                <h2 data-city-forecast-day3></h2>
+                <p data-city-forecast-value3></p>
             </div>
 
             <div class="city-forecast-info-modal-flex-item">
-                <h2 data-city-forecast-day4>Thursday</h2>
-                <p data-city-forecast-value4>50%</p>
+                <h2 data-city-forecast-day4></h2>
+                <p data-city-forecast-value4></p>
             </div>
 
             <div class="city-forecast-info-modal-flex-item">
-                <h2 data-city-forecast-day5>Friday</h2>
-                <p data-city-forecast-value5>20</p>
+                <h2 data-city-forecast-day5></h2>
+                <p data-city-forecast-value5></p>
             </div>
 
             <div class="city-forecast-info-modal-flex-item">
-                <h2 data-city-forecast-day6>Saturday</h2>
-                <p data-city-forecast-value6>29</p>
+                <h2 data-city-forecast-day6></h2>
+                <p data-city-forecast-value6></p>
             </div>
 
             <div class="city-forecast-info-modal-flex-item">
-                <h2 data-city-forecast-day7>Sunday</h2>
-                <p data-city-forecast-value7>5</p>
+                <h2 data-city-forecast-day7></h2>
+                <p data-city-forecast-value7></p>
             </div>
         </div>
         
