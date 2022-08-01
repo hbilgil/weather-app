@@ -49,10 +49,11 @@
             <div class="summary-item">
               <div id="result-temp">49°</div>
               <div id="result-place">London, GB</div>
-              <button id="convert-units-btn">F°</button>
+              <button id="convert-units-btn" class="convert-units-btn">F°</button>
             </div>
+
             <div class="summary-item">
-                <div id="result-weather">Clear Skies</div>
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/01d.svg" id="result-weather">
                 <div id="result-weather-desc">Clear Skies</div>
             </div>
           </div>
@@ -78,6 +79,7 @@
 
           <button id="open-details-btn">Weather details</button>
         </div>
+        <p class="city-name">Eskişehir</p>
     </div>
 
     <footer class="footer">
@@ -95,6 +97,8 @@
     <div class="city-forecast-info-modal" id="city-forecast-info-modal"> <!--the project add modal will be invisible until it is invoked by JavaScript function dynamically-->
             
         <h2 class="city-forecast-info-modal-heading">Weather Details</h2>
+
+        <div class="result-weather-detail" data-city-card-detail>Clear Skies</div>
 
         <h2 class="city-forecast-info-modal-flex-1-heading">More details</h2>
             
