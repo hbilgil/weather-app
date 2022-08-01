@@ -12,7 +12,7 @@
 
     <header class="header">
         <div class="app-header">
-            <h1 class="header-title"><span>Weather</span> App</h1>
+            <h1 class="header-title">Weather App</h1>
         </div>
 
         <div class="logo-copyright">
@@ -22,64 +22,64 @@
         </div>
     </header>
 
-    <div class="location-search-content">
+    <div class="location-search-content" id="location-search-content">
         <div class="main-screen">
             <img src="./logo-image/weather-forecast.png" alt="logo-image" class="logo-image">
 
             <div id="weather-form">
 
-                <form onsubmit="event.preventDefault();" role="search">
+                <form role="search" data-search-form>
                     <label for="search">Search for stuff</label>
                     <input id="search" type="search" placeholder="Search for a city" autofocus required />
                     <button type="submit" class="form-button">Go</button>    
                 </form>
 
-                <p id="error" style="display: none">Error</p>
+                <p id="error" class="error">City can not be founded!</p>
             </div>
         </div>
     </div>
 
-    <div class="result-screen">
+    <div class="result-screen" id="result-screen">
         <div class="result-content">
-          <div id="return-btn">
-            <i class="fa-solid fa-rotate-left"></i>
-          </div>
-
-          <div class="result-summary">
-            <div class="summary-item">
-              <div id="result-temp">49°</div>
-              <div id="result-place">London, GB</div>
-              <button id="convert-units-btn" class="convert-units-btn">F°</button>
+            <div class="return-btn-div">
+                <i class="fa-solid fa-rotate-left" id="return-button"></i>
             </div>
 
-            <div class="summary-item">
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/01d.svg" id="result-weather">
-                <div id="result-weather-desc">Clear Skies</div>
-            </div>
-          </div>
+            <div class="result-summary">
+                <div class="summary-item">
+                    <div id="result-temp">49°</div>
+                    <div id="result-place">London, GB</div>
+                    <button id="convert-units-btn" class="convert-units-btn">C°</button>
+                </div>
 
-          <div class="result-details">
-            <div class="details-item">
-              <h2>Feels like</h2>
-              <p id="result-feeling">25</p>
+                <div class="summary-item">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/01d.svg" id="result-weather">
+                    <div id="result-weather-desc">Clear Skies</div>
+                </div>
             </div>
-            <div class="details-item">
-              <h2>Humidity</h2>
-              <p id="result-humidity">5</p>
-            </div>
-            <div class="details-item">
-              <h2>Chance of Rain</h2>
-              <p id="result-chance-of-rain">60%</p>
-            </div>
-            <div class="details-item">
-              <h2>Wind Speed</h2>
-              <p id="result-wind-speed">50</p>
-            </div>
-          </div>
 
-          <button id="open-details-btn">Weather details</button>
+            <div class="result-details">
+                <div class="details-item">
+                    <h2>Feels like</h2>
+                    <p id="result-feeling">25</p>
+                </div>
+                <div class="details-item">
+                    <h2>Humidity</h2>
+                    <p id="result-humidity">5</p>
+                </div>
+                <div class="details-item">
+                    <h2>Chance of Rain</h2>
+                    <p id="result-chance-of-rain">60%</p>
+                </div>
+                <div class="details-item">
+                    <h2>Wind Speed</h2>
+                    <p id="result-wind-speed">50</p>
+                </div>
+            </div>
+
+            <button id="open-details-btn">Weather details</button>
         </div>
-        <p class="city-name">Eskişehir</p>
+        <p class="city-name" data-city-name>Eskişehir</p>
     </div>
 
     <footer class="footer">
@@ -143,43 +143,42 @@
 
         <h2 class="city-forecast-info-modal-flex-2-heading">Weekly Forecasts</h2>
 
-        <div class="city-forecast-info-modal-weekly-flex-2" data-city-card-weekly-forecast>
+        <div class="city-forecast-info-modal-weekly-flex-2">
             <div class="city-forecast-info-modal-flex-item">
-                <h2>Monday</h2>
-                <p data-city-card-monday>20</p>
+                <h2 data-city-forecast-day1>Monday</h2>
+                <p data-city-forecast-value1>20</p>
             </div>
 
             <div class="city-forecast-info-modal-flex-item">
-                <h2>Tuesday</h2>
-                <p data-city-card-tuesday>29</p>
+                <h2 data-city-forecast-day2>Tuesday</h2>
+                <p data-city-forecast-value2>29</p>
             </div>
 
             <div class="city-forecast-info-modal-flex-item">
-                <h2>Wednesday</h2>
-                <p data-city-card-wednesday>5</p>
+                <h2 data-city-forecast-day3>Wednesday</h2>
+                <p data-city-forecast-value3>5</p>
             </div>
 
             <div class="city-forecast-info-modal-flex-item">
-                <h2>Thursday</h2>
-                <p data-city-card-thursday>50%</p>
+                <h2 data-city-forecast-day4>Thursday</h2>
+                <p data-city-forecast-value4>50%</p>
             </div>
 
             <div class="city-forecast-info-modal-flex-item">
-                <h2>Friday</h2>
-                <p data-city-card-friday>20</p>
+                <h2 data-city-forecast-day5>Friday</h2>
+                <p data-city-forecast-value5>20</p>
             </div>
 
             <div class="city-forecast-info-modal-flex-item">
-                <h2>Saturday</h2>
-                <p data-city-card-saturday>29</p>
+                <h2 data-city-forecast-day6>Saturday</h2>
+                <p data-city-forecast-value6>29</p>
             </div>
 
             <div class="city-forecast-info-modal-flex-item">
-                <h2>Sunday</h2>
-                <p data-city-card-sunday>5</p>
+                <h2 data-city-forecast-day7>Sunday</h2>
+                <p data-city-forecast-value7>5</p>
             </div>
         </div>
-
         
     </div>
 
