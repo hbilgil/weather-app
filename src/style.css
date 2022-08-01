@@ -190,6 +190,7 @@ label {
 .result-screen.active {
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
     height: calc(83vh - 5em);
     justify-content: center;
@@ -198,6 +199,16 @@ label {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    position: relative;
+}
+
+.city-name {
+    z-index: 1;
+    color: white;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 3vw;
 }
 
 .result-content {
@@ -231,7 +242,6 @@ label {
 }
 
 .fa-rotate-left {
-    filter: invert(100%) sepia(0%) saturate(7078%) hue-rotate(121deg) brightness(120%) contrast(111%);
     cursor: pointer;
     transition: filter 0.3s ease;
 }
@@ -251,7 +261,9 @@ label {
 }
 
 #result-weather {
-    font-size: 4vw;
+    filter: invert(100%) sepia(100%) saturate(34%) hue-rotate(356deg) brightness(109%) contrast(100%);
+    width: 20vw;
+    height: 20vh;
 }
 
 .summary-item {
@@ -285,7 +297,7 @@ label {
     margin: 0;
 }  
 
-#convert-units-btn {
+.convert-units-btn {
     position: absolute;
     left: 0.5em;
     top: 0.5em;
@@ -306,7 +318,7 @@ label {
     transition: color 0.3s ease;
 }
 
-#convert-units-btn:hover {
+.convert-units-btn:hover {
     color:hotpink;
 }
 
@@ -381,6 +393,7 @@ label {
 }
 
 .city-forecast-info-modal {
+    display: none;
     position: fixed;
     width: calc(80vw - 20px);
     height: calc(61vh - 20px);
@@ -400,6 +413,12 @@ label {
     font-size: 5vw;
     padding: 20px;
     width: 100%;
+    text-align: center;
+}
+
+.result-weather-detail {
+    font-size: 3vw;
+    background-color: white;
     text-align: center;
 }
 
@@ -438,6 +457,7 @@ label {
 }
 
 .city-forecast-info-modal.active {
+    display: block;
     transform: translate(-50%, -50%) scale(1);
 }
 
@@ -478,13 +498,17 @@ label {
         font-size: 4vw;
     }
 
+    .city-name {
+        font-size: 4vw;
+    }
+
     .city-forecast-info-modal {
         height: calc(40vh - 20px);
     }
 
     .result-content {
         width: 60%;
-        height: 70%;
+        height: 80%;
     }
 
     #open-details-btn {
