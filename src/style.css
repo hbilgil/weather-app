@@ -400,8 +400,8 @@ label {
 .city-forecast-info-modal {
     display: none;
     position: fixed;
-    width: calc(80vw - 20px);
-    height: calc(61vh - 20px);
+    width: calc(60vw - 20px);
+    height: calc(45vh - 20px);
     z-index: 1; /*the div will be in front of the overlayWindow*/
     top: 50%; /*exact place of the div*/
     left: 50%; /*exact place of the div*/
@@ -427,8 +427,7 @@ label {
     text-align: center;
 }
 
-.city-forecast-info-modal-flex-1-heading,
-.city-forecast-info-modal-flex-2-heading {
+.city-forecast-info-modal-flex-heading {
     font-family: 'Mulish', sans-serif;
     font-size: 2vw;
     background-image: linear-gradient(to right, #87cefa, #69a8ec, #687ed5, #7550b2, #800080);
@@ -438,8 +437,7 @@ label {
     padding: 10px;
 }
 
-.city-forecast-info-modal-flex-1,
-.city-forecast-info-modal-weekly-flex-2 {
+.city-forecast-info-modal-flex {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -457,7 +455,7 @@ label {
     font-size: 1vw;
 }
 
-.city-forecast-info-modal-flex-item:nth-child(7) {
+.city-forecast-info-modal-flex-item:nth-child(5) {
     border-right: none;
 }
 
@@ -508,7 +506,7 @@ label {
     }
 
     .city-forecast-info-modal {
-        height: calc(40vh - 20px);
+        height: calc(30vh - 20px);
     }
 
     .result-content {
