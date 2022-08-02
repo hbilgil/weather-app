@@ -33,6 +33,7 @@ const weatherDetailsModalSunSet = document.querySelector('[data-city-card-sun-se
 /*-----FUNCTION DECLARATIONS-----*/
 
 function openResultScreen() { //allowing to change contents dynamically
+
     locationSearchDiv.classList.add('passive');
     resultScreenDiv.classList.add('active');
 }
@@ -43,8 +44,10 @@ function closeResultScreen() { //allowing to clear results and return to search 
     resultScreenDiv.classList.remove('active');
 
     closeWeatherDetailsModal();
+    makeResultContentsDefault();
+}
 
-    //All result contents are cleared off and returned to default values for the next search for a new city
+function makeResultContentsDefault() { //All result contents are cleared off and returned to default values for the next search for a new city
 
     temperatureResult.textContent = null;
     placeResult.textContent = null;
@@ -67,27 +70,18 @@ function closeResultScreen() { //allowing to clear results and return to search 
     weatherDetailsModalSunSet.textContent = null;
 }
 
-function toggleTemperatureUnits(e) { //allowing to convert values and degree metrics between each other
+function toggleTemperatureUnits() { //allowing to convert values and degree metrics between each other
 
     convertUnitsBtn.textContent = convertUnitsBtn.textContent === '°C' ? '°F' : '°C';
     degreeMetrics.forEach((degreeMetric) => {
         degreeMetric.textContent = degreeMetric.textContent === '°C' ? '°F' : '°C' 
     });
 
-    //All values are selected according to their places compared to convert button
-
-    let tempResultTextContent = e.target.parentNode.firstElementChild.firstElementChild.textContent;
-    let tempResultNum = Number(tempResultTextContent); //strings are made numbers
-
-    let feelingResultTextContent = e.target.parentNode.parentNode.nextElementSibling.firstElementChild.firstElementChild.nextElementSibling.firstElementChild.textContent;
-    let feelingResultNum = Number(feelingResultTextContent); //strings are made numbers
-
-    let minTempResultTextContent = e.target.parentNode.parentNode.nextElementSibling.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.firstElementChild.textContent;
-    let minTempResultNum = Number(minTempResultTextContent); //strings are made numbers
-
-    let maxTempResultTextContent = e.target.parentNode.parentNode.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.firstElementChild.textContent;
-    let maxTempResultNum = Number(maxTempResultTextContent); //strings are made numbers
-
+    let tempResultNum = Number(temperatureResult.textContent);
+    let feelingResultNum = Number(feelingResult.textContent);
+    let minTempResultNum = Number(minTempResult.textContent);
+    let maxTempResultNum = Number(maxTempResult.textContent);
+    
     if(convertUnitsBtn.textContent === '°F') { //if else statement for making conversions
         tempResultNum = convertFromCelToFah(tempResultNum);
         feelingResultNum = convertFromCelToFah(feelingResultNum);
@@ -100,17 +94,10 @@ function toggleTemperatureUnits(e) { //allowing to convert values and degree met
         maxTempResultNum = convertFromFahToCel(maxTempResultNum);
     }
 
-    tempResultTextContent = tempResultNum.toString(); //numbers are made string for recursive toggling between metrics
-    temperatureResult.textContent = tempResultTextContent;
-
-    feelingResultTextContent = feelingResultNum.toString();//numbers are made string for recursive toggling between metrics
-    feelingResult.textContent = feelingResultTextContent;
-
-    minTempResultTextContent = minTempResultNum.toString();//numbers are made string for recursive toggling between metrics
-    minTempResult.textContent = minTempResultTextContent;
-    
-    maxTempResultTextContent = maxTempResultNum.toString();//numbers are made string for recursive toggling between metrics
-    maxTempResult.textContent = maxTempResultTextContent;
+    temperatureResult.textContent = tempResultNum.toString();
+    feelingResult.textContent = feelingResultNum.toString();
+    minTempResult.textContent = minTempResultNum.toString();
+    maxTempResult.textContent = maxTempResultNum.toString();
 }
 
 function convertFromCelToFah(Number) { //allowing to convert from celcius to fahrenheit
