@@ -15,37 +15,19 @@ const convertUnitsBtn = document.getElementById('convert-units-btn');
 const weatherResult = document.getElementById('result-weather');
 const weatherDescResult = document.getElementById('result-weather-desc');
 const feelingResult = document.getElementById('result-feeling');
-const humidityResult = document.getElementById('result-humidity');
-//const changeOfRainResult = document.getElementById('result-chance-of-rain');
+const minTempResult = document.getElementById('result-min-temp');
+const maxTempResult = document.getElementById('result-max-temp');
 const windSpeedResult = document.getElementById('result-wind-speed');
 const openDetailsBtn = document.getElementById('open-details-btn');
 const cityName = document.querySelector('[data-city-name]');
 const overlayWindow = document.getElementById('overlay-window');
 const weatherDetailsModal = document.getElementById('city-forecast-info-modal');
 const weatherDetailsModalDesc = document.querySelector('[data-city-card-detail]');
-const weatherDetailsModalMinTemp = document.querySelector('[data-city-card-min-temp]');
-const weatherDetailsModalMaxTemp = document.querySelector('[data-city-card-max-temp]');
+const weatherDetailsModalHumidity = document.querySelector('[data-city-card-humidity]');
+const weatherDetailsModalPressure = document.querySelector('[data-city-card-pressure]');
 const weatherDetailsModalVisibility = document.querySelector('[data-city-card-visibility]');
-//const weatherDetailsModalCloudiness = document.querySelector('[data-city-card-cloudiness]');
 const weatherDetailsModalSunRise = document.querySelector('[data-city-card-sun-rise]');
 const weatherDetailsModalSunSet = document.querySelector('[data-city-card-sun-set]');
-const weatherDetailsModalPressure = document.querySelector('[data-city-card-pressure]');
-/*
-const weeklyForecastDay1 = document.querySelector('[data-city-forecast-day1]');
-const weeklyForecastDay2 = document.querySelector('[data-city-forecast-day2]');
-const weeklyForecastDay3 = document.querySelector('[data-city-forecast-day3]');
-const weeklyForecastDay4 = document.querySelector('[data-city-forecast-day4]');
-const weeklyForecastDay5 = document.querySelector('[data-city-forecast-day5]');
-const weeklyForecastDay6 = document.querySelector('[data-city-forecast-day6]');
-const weeklyForecastDay7 = document.querySelector('[data-city-forecast-day7]');
-const weeklyForecastValue1 = document.querySelector('[data-city-forecast-value1]');
-const weeklyForecastValue2 = document.querySelector('[data-city-forecast-value2]');
-const weeklyForecastValue3 = document.querySelector('[data-city-forecast-value3]');
-const weeklyForecastValue4 = document.querySelector('[data-city-forecast-value4]');
-const weeklyForecastValue5 = document.querySelector('[data-city-forecast-value5]');
-const weeklyForecastValue6 = document.querySelector('[data-city-forecast-value6]');
-const weeklyForecastValue7 = document.querySelector('[data-city-forecast-value7]');
-*/
 
 function openResultScreen() {
     locationSearchDiv.classList.add('passive');
@@ -61,14 +43,13 @@ function toggleTemperatureUnits(data) {
     convertUnitsBtn.textContent = convertUnitsBtn.textContent === 'C°' ? 'F°' : 'C°';
     temperatureResult.textContent = temperatureResult.textContent === `${data.temperature} °C` ? `(${data.temperature} * 1.8 + 32) °F` : `${data.temperature} °C`;
     feelingResult.textContent = feelingResult.textContent === `${data.feelsLike} °C` ? `(${data.feelsLike} * 1.8 + 32) °F` : `${data.feelsLike} °C`;
-    weatherDetailsModalMinTemp.textContent = weatherDetailsModalMinTemp.textContent === `${data.minTemperature} °C` ? `(${data.minTemperature} * 1.8 + 32) °F` : `${data.minTemperature} °C`;
-    weatherDetailsModalMaxTemp.textContent = weatherDetailsModalMaxTemp.textContent === `${data.maxTemperature} °C` ? `(${data.maxTemperature} * 1.8 + 32) °F` : `${data.maxTemperature} °C`;
+    minTempResult.textContent = minTempResult.textContent === `${data.minTemperature} °C` ? `(${data.minTemperature} * 1.8 + 32) °F` : `${data.minTemperature} °C`;
+    maxTempResult.textContent = maxTempResult.textContent === `${data.maxTemperature} °C` ? `(${data.maxTemperature} * 1.8 + 32) °F` : `${data.maxTemperature} °C`;
 }
 
 function openWeatherDetailsModal() {
     overlayWindow.classList.add('active');
     weatherDetailsModal.classList.add('active');
-    setWeatherDetails();
 }
 
 function closeWeatherDetailsModal() {
@@ -96,14 +77,14 @@ function createWeatherDataObject(data) {
 
 async function getWeatherData(city) {
     try {
-      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=bbea7694c66d062ebb3f9152bd60caee`, { mode: "cors" });
+      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=bbea7694c66d062ebb3f9152bd60caee`, { mode: 'cors' });
       const data = await response.json()
       console.log(data);
       createWeatherDataObject(data);
       openResultScreen();
       setSearchResults(data);
       setWeatherDetails(data);
-    } catch {
+    } catch (error) {
         addErrorMessage();
     }
     locationSearchForm.reset();
@@ -118,7 +99,8 @@ function setSearchResults(data) {
     weatherResult.src = `${data.iconSrc}`;
     weatherDescResult.textContent = `${data.description}`;
     feelingResult.textContent = `${data.feelsLike} °C`;
-    humidityResult.textContent = `${data.humidity} %`;
+    minTempResult.textContent = `${data.minTemperature} °C`;
+    maxTempResult.textContent = `${data.maxTemperature} °C`;
     windSpeedResult.textContent = `${data.windSpeed} km/h`;
 }
 
@@ -126,12 +108,11 @@ function setWeatherDetails(data) {
     if (!data) return;
 
     weatherDetailsModalDesc.textContent = `${data.description}`;
-    weatherDetailsModalMinTemp.textContent = `${data.minTemperature} °C`;
-    weatherDetailsModalMaxTemp.textContent = `${data.maxTemperature} °C`;
-    weatherDetailsModalVisibility.textContent = `${data.visibility}`;
+    weatherDetailsModalHumidity.textContent = `${data.humidity} %`;
+    weatherDetailsModalPressure.textContent = `${data.pressure} hPa`;
+    weatherDetailsModalVisibility.textContent = `${data.visibility} m`;
     weatherDetailsModalSunRise.textContent = `${data.sunrise}`;
     weatherDetailsModalSunSet.textContent = `${data.sunset}`;
-    weatherDetailsModalPressure.textContent = `${data.pressure}`;
 }
 
 function addErrorMessage() {
@@ -161,4 +142,4 @@ overlayWindow.addEventListener('click', closeWeatherDetailsModal);
 
 document.addEventListener('keydown', handleKeyboardInput) //onload event listener for escape key
 
-locationSearchFormInput.addEventListener('click', removeErrorMessage);
+locationSearchFormInput.addEventListener('keydown', removeErrorMessage);
