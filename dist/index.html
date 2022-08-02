@@ -47,13 +47,13 @@
 
             <div class="result-summary">
                 <div class="summary-item">
-                    <div id="result-temp"></div>
+                    <div class="temp"><div id="result-temp"></div><span data-degree-metric>°C</span></div>
                     <div id="result-place"></div>
-                    <button id="convert-units-btn" class="convert-units-btn">C°</button>
+                    <button id="convert-units-btn" class="convert-units-btn">°C</button>
                 </div>
 
                 <div class="summary-item">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/01d.svg" id="result-weather">
+                    <img id="result-weather">
                     <div id="result-weather-desc"></div>
                 </div>
             </div>
@@ -61,17 +61,17 @@
             <div class="result-details">
                 <div class="details-item">
                     <h2>Feels like</h2>
-                    <p id="result-feeling"></p>
+                    <div><p id="result-feeling"></p><span data-degree-metric>°C</span></div>
                 </div>
 
                 <div class="details-item">
                     <h2>Min temp</h2>
-                    <p id="result-min-temp"></p>
+                    <div><p id="result-min-temp"></p><span data-degree-metric>°C</span></div>
                 </div>
     
                 <div class="details-item">
                     <h2>Max temp</h2>
-                    <p id="result-max-temp"></p>
+                    <div><p id="result-max-temp"></p><span data-degree-metric>°C</span></div>
                 </div>
 
                 <div class="details-item">
