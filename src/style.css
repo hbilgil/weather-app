@@ -227,8 +227,8 @@ label {
     background-color: rgba(0, 0, 0, 0.779);
     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.3);
     box-sizing: border-box;
-    width: calc(50vw - 20px);
-    height: calc(50vh - 20px);
+    width: calc(45vw);
+    height: 70%;
     z-index: 1;
     color: white;
 }
@@ -258,11 +258,13 @@ label {
 .result-summary {
     display: flex;
     justify-content: center;
-    gap: 0;
+    gap: 10px;
 }
 
-#result-temp {
+.temp {
+    display: flex;
     font-size: 6vw;
+    gap: 15px;
 }
 
 #result-weather {
@@ -296,6 +298,11 @@ label {
     color: var(--color-brand);
     font-size: 1em;
     margin: 0;
+}
+
+.details-item div {
+    display: flex;
+    gap: 4px;
 }
 
 .details-item p {
@@ -401,7 +408,8 @@ label {
     display: none;
     position: fixed;
     width: calc(60vw - 20px);
-    height: calc(45vh - 20px);
+    /*height: calc(45vh - 20px);*/
+    height: 40%;
     z-index: 1; /*the div will be in front of the overlayWindow*/
     top: 50%; /*exact place of the div*/
     left: 50%; /*exact place of the div*/
