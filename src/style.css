@@ -404,6 +404,25 @@ label {
     display: block;
 }
 
+.spin {
+    display: none;
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    z-index: 1; /*the div will be in front of the overlayWindow*/
+    top: 45%; /*exact place of the div*/
+    left: 45%; /*exact place of the div*/
+    border: 12px solid rgba(125, 7, 158, 0.947);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 3s ease-in-out infinite;
+    -webkit-animation: spin 3s ease-in-out infinite;
+}
+
+.spin.active {
+    display: inline-block;
+}
+
 .city-forecast-info-modal {
     display: none;
     position: fixed;
@@ -479,6 +498,17 @@ label {
     }
     50% {
         background-position: 100% 40%;
+    }
+}
+
+@keyframes spin {
+    to {
+      -webkit-transform: rotate(360deg);
+    }
+}
+  @-webkit-keyframes spin {
+    to {
+      -webkit-transform: rotate(360deg);
     }
 }
 
