@@ -22,6 +22,7 @@ const windSpeedResult = document.getElementById('result-wind-speed');
 const openDetailsBtn = document.getElementById('open-details-btn');
 const cityName = document.querySelector('[data-city-name]');
 const overlayWindow = document.getElementById('overlay-window');
+const spin = document.getElementById('spin');
 const weatherDetailsModal = document.getElementById('city-forecast-info-modal');
 const weatherDetailsModalDesc = document.querySelector('[data-city-card-detail]');
 const weatherDetailsModalHumidity = document.querySelector('[data-city-card-humidity]');
@@ -34,13 +35,27 @@ const weatherDetailsModalSunSet = document.querySelector('[data-city-card-sun-se
 
 function openResultScreen() { //allowing to change contents dynamically
 
+    openPlayingLoadingSpin();
     locationSearchDiv.classList.add('passive');
+    setTimeout(closePlayingLoadingSpin, 500);
     resultScreenDiv.classList.add('active');
+}
+
+function openPlayingLoadingSpin() {
+    overlayWindow.classList.add('active');
+    spin.classList.add('active');
+}
+
+function closePlayingLoadingSpin() {
+    overlayWindow.classList.remove('active');
+    spin.classList.remove('active');
 }
 
 function closeResultScreen() { //allowing to clear results and return to search form
 
+    openPlayingLoadingSpin();
     locationSearchDiv.classList.remove('passive');
+    setTimeout(closePlayingLoadingSpin, 500);
     resultScreenDiv.classList.remove('active');
 
     closeWeatherDetailsModal();
@@ -71,7 +86,8 @@ function makeResultContentsDefault() { //All result contents are cleared off and
 }
 
 function toggleTemperatureUnits() { //allowing to convert values and degree metrics between each other
-
+    
+    openPlayingLoadingSpin();
     convertUnitsBtn.textContent = convertUnitsBtn.textContent === '°C' ? '°F' : '°C';
     degreeMetrics.forEach((degreeMetric) => {
         degreeMetric.textContent = degreeMetric.textContent === '°C' ? '°F' : '°C' 
@@ -98,6 +114,7 @@ function toggleTemperatureUnits() { //allowing to convert values and degree metr
     feelingResult.textContent = feelingResultNum.toString();
     minTempResult.textContent = minTempResultNum.toString();
     maxTempResult.textContent = maxTempResultNum.toString();
+    setTimeout(closePlayingLoadingSpin, 500);
 }
 
 function convertFromCelToFah(Number) { //allowing to convert from celcius to fahrenheit
