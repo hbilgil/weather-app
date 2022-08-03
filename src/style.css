@@ -92,6 +92,7 @@ a:hover {
     width: 100%;
     height: calc(83vh - 5em);
     background-image: linear-gradient(130deg, azure, lavender);
+    animation: fadeIn 1s;
 }
 
 .location-search-content.passive {
@@ -186,6 +187,7 @@ label {
 
 .error.active {
     display: block;
+    animation: fadeIn 1s;
 }
 
 .result-screen {
@@ -205,6 +207,7 @@ label {
     -o-background-size: cover;
     background-size: cover;
     position: relative;
+    animation: fadeIn 0.5s;
 }
 
 .city-name {
@@ -231,6 +234,7 @@ label {
     height: 70%;
     z-index: 1;
     color: white;
+    animation: fadeIn 2s;
 }
 
 .return-btn-div {
@@ -396,8 +400,8 @@ label {
     left: 0; /*exact place of the div*/
     width: 100%;
     height: 100%;
-    background-color:dimgray;
-    opacity: 0.8;
+    background-color:black;
+    opacity: 0.7;
 }
 
 .overlay-window.active {
@@ -415,8 +419,8 @@ label {
     border: 12px solid rgba(125, 7, 158, 0.947);
     border-radius: 50%;
     border-top-color: #fff;
-    animation: spin 3s ease-in-out infinite;
-    -webkit-animation: spin 3s ease-in-out infinite;
+    animation: spin 2s ease-in-out infinite;
+    -webkit-animation: spin 2s ease-in-out infinite;
 }
 
 .spin.active {
@@ -489,6 +493,7 @@ label {
 .city-forecast-info-modal.active {
     display: block;
     transform: translate(-50%, -50%) scale(1);
+    animation: fadeIn 1s;
 }
 
 @keyframes sliding-background {
@@ -498,6 +503,15 @@ label {
     }
     50% {
         background-position: 100% 40%;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }
 
