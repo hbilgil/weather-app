@@ -158,20 +158,8 @@ function createWeatherData(data) { //allowing to allocate values by the data der
     const iconSrc = `https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${data.weather[0].icon}.svg`;
     
     //Allocating values
+    setResultDivBackground(weatherName);
     weatherMainName.textContent = `${weatherName}`;
-
-    if(weatherName === 'Ash') {
-        resultScreenDiv.style.background = "url('./295db14a4ae22dbe158e.jpg')";
-    } else if (weatherName === 'Clouds') {
-        
-    }
-    resultScreenDiv.style.background = "url('.clouds.jpg')";
-    resultScreenDiv.style.backgroundAttachment = 'fixed';
-    resultScreenDiv.style.backgroundPosition = 'center';
-    resultScreenDiv.style.backgroundRepeat = 'no-repeat';
-    resultScreenDiv.style.backgroundSize = 'cover';
-
-    
     temperatureResult.textContent = `${temperature}`;
     placeResult.textContent = `${city}, ${country}`;
     weatherResult.src = `${iconSrc}`;
@@ -186,6 +174,50 @@ function createWeatherData(data) { //allowing to allocate values by the data der
     weatherDetailsModalVisibility.textContent = `${visibility} m`;
     weatherDetailsModalSunRise.textContent = `${sunRiseHours}`;
     weatherDetailsModalSunSet.textContent = `${sunSetHours}`;
+    
+}
+
+function setResultDivBackground(weatherName) {
+    
+
+    if(weatherName === 'Ash') {
+        resultScreenDiv.style.background = "url('./weather\ photos/ash.jpg')";
+    } else if (weatherName === 'Clear') {
+        resultScreenDiv.style.background = "url('./weather\ photos/clear.jpg')";
+    } else if (weatherName === 'Clouds') {
+        resultScreenDiv.style.background = "url('./weather\ photos/clouds.jpeg')";
+    } else if (weatherName === 'Drizzle') {
+        resultScreenDiv.style.background = "url('./weather\ photos/drizzle.jpg')";
+    } else if (weatherName === 'Dust') {
+        resultScreenDiv.style.background = "url('./weather\ photos/dust.jpg')";
+    } else if (weatherName === 'Fog') {
+        resultScreenDiv.style.background = "url('./weather\ photos/fog.jpg')";
+    } else if (weatherName === 'Haze') {
+        resultScreenDiv.style.background = "url('./weather\ photos/haze.jpg')";
+    } else if (weatherName === 'Mist') {
+        resultScreenDiv.style.background = "url('./weather\ photos/mist.jpg')";
+    } else if (weatherName === 'Rain') {
+        resultScreenDiv.style.background = "url('./weather\ photos/rain.jpg')";
+    } else if (weatherName === 'Sand') {
+        resultScreenDiv.style.background = "url('./weather\ photos/sand.jpg')";
+    } else if (weatherName === 'Smoke') {
+        resultScreenDiv.style.background = "url('./weather\ photos/smoke.jpg')";
+    } else if (weatherName === 'Snow') {
+        resultScreenDiv.style.background = "url('./weather\ photos/snow.jpg')";
+    } else if (weatherName === 'Squall') {
+        resultScreenDiv.style.background = "url('./weather\ photos/squall.jpg')";
+    } else if (weatherName === 'Thunderstorm') {
+        resultScreenDiv.style.background = "url('./weather\ photos/thunderstorm.jpg')";
+    }else {
+        resultScreenDiv.style.background = "url('./weather\ photos/tornado.jpg')";
+    }
+    
+    resultScreenDiv.style.backgroundPosition = 'center';
+    resultScreenDiv.style.backgroundRepeat = 'no-repeat';
+    resultScreenDiv.style.backgroundSize = 'cover';
+    //resultScreenDiv.style.backgroundAttachment = 'fixed';
+
+    
 }
 
 async function getWeatherData(city) {
