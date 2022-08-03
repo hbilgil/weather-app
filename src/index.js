@@ -165,7 +165,7 @@ function createWeatherData(data) { //allowing to allocate values by the data der
     } else if (weatherName === 'Clouds') {
         
     }
-    resultScreenDiv.style.background = "url('./src/images/clouds.jpg')";
+    resultScreenDiv.style.background = "url('.clouds.jpg')";
     resultScreenDiv.style.backgroundAttachment = 'fixed';
     resultScreenDiv.style.backgroundPosition = 'center';
     resultScreenDiv.style.backgroundRepeat = 'no-repeat';
