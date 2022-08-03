@@ -201,7 +201,7 @@ label {
     justify-content: center;
     height: calc(83vh - 5em);
     justify-content: center;
-    background: url(./images/Eskisehir-porsuk-cayi-tekne.jpeg) no-repeat center center fixed;
+    /*background: url(./images/ash.jpg) no-repeat center center fixed;*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

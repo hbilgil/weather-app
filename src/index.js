@@ -20,7 +20,7 @@ const maxTempResult = document.getElementById('result-max-temp');
 const degreeMetrics = document.querySelectorAll('[data-degree-metric]');
 const windSpeedResult = document.getElementById('result-wind-speed');
 const openDetailsBtn = document.getElementById('open-details-btn');
-const cityName = document.querySelector('[data-city-name]');
+const weatherMainName = document.querySelector('[data-city-name]');
 const overlayWindow = document.getElementById('overlay-window');
 const spin = document.getElementById('spin');
 const weatherDetailsModal = document.getElementById('city-forecast-info-modal');
@@ -34,36 +34,33 @@ const weatherDetailsModalSunSet = document.querySelector('[data-city-card-sun-se
 /*-----FUNCTION DECLARATIONS-----*/
 
 function openResultScreen() { //allowing to change contents dynamically
-
     openPlayingLoadingSpin();
     locationSearchDiv.classList.add('passive');
-    setTimeout(closePlayingLoadingSpin, 500);
+    setTimeout(closePlayingLoadingSpin, 500); //timeout triggered to close loading spin automatically
     resultScreenDiv.classList.add('active');
 }
 
-function openPlayingLoadingSpin() {
+function openPlayingLoadingSpin() { //allowing to add loading spin to make UI and UX design better
     overlayWindow.classList.add('active');
     spin.classList.add('active');
 }
 
-function closePlayingLoadingSpin() {
+function closePlayingLoadingSpin() { //closing loading spin
     overlayWindow.classList.remove('active');
     spin.classList.remove('active');
 }
 
 function closeResultScreen() { //allowing to clear results and return to search form
-
     openPlayingLoadingSpin();
     locationSearchDiv.classList.remove('passive');
     setTimeout(closePlayingLoadingSpin, 500);
     resultScreenDiv.classList.remove('active');
 
-    closeWeatherDetailsModal();
+    closeWeatherDetailsModal(); //if weather details modal is opened, it is closed too
     makeResultContentsDefault();
 }
 
 function makeResultContentsDefault() { //All result contents are cleared off and returned to default values for the next search for a new city
-
     temperatureResult.textContent = null;
     placeResult.textContent = null;
     weatherResult.src = '#';
@@ -76,7 +73,7 @@ function makeResultContentsDefault() { //All result contents are cleared off and
     });
     convertUnitsBtn.textContent = '°C';
     windSpeedResult.textContent = null;
-    cityName.textContent = null;
+    weatherMainName.textContent = null;
     weatherDetailsModalDesc.textContent = null;
     weatherDetailsModalHumidity.textContent = null;
     weatherDetailsModalPressure.textContent = null;
@@ -85,9 +82,9 @@ function makeResultContentsDefault() { //All result contents are cleared off and
     weatherDetailsModalSunSet.textContent = null;
 }
 
-function toggleTemperatureUnits() { //allowing to convert values and degree metrics between each other
-    
+function toggleTemperatureUnits() { //allowing to convert values and degree metrics between each other 
     openPlayingLoadingSpin();
+
     convertUnitsBtn.textContent = convertUnitsBtn.textContent === '°C' ? '°F' : '°C';
     degreeMetrics.forEach((degreeMetric) => {
         degreeMetric.textContent = degreeMetric.textContent === '°C' ? '°F' : '°C' 
@@ -121,7 +118,7 @@ function convertFromCelToFah(Number) { //allowing to convert from celcius to fah
     return Math.round((Number * 1.8) + 32);
 }
 
-function convertFromFahToCel(Number) { //allowing to convert from fahrenheit to celcius 
+function convertFromFahToCel(Number) { //allowing to convert from fahrenheit to celcius
     return Math.round((Number - 32) / 1.8);
 }
 
@@ -141,7 +138,6 @@ function handleKeyboardInput(e) { //Enables users to close weather details modal
 }
 
 function createWeatherData(data) { //allowing to allocate values by the data derived from fetching by async func
-
     const city = data.name;
     const country = data.sys.country;
     const temperature = Math.round(data.main.temp); //rounding decimal values
@@ -157,12 +153,13 @@ function createWeatherData(data) { //allowing to allocate values by the data der
     const sunSet = data.sys.sunset;
     const sunSetHours = new Date(sunSet * 1000).toString().substring(16, 21); //deriving a string of hour and minutes
     const description = data.weather[0].description;
+    const weatherName = data.weather[0].main;
     const descriptionWithCapitalizedFirstLetter = description.charAt(0).toUpperCase() + description.slice(1);
     const iconSrc = `https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${data.weather[0].icon}.svg`;
     
     //Allocating values
-
-    cityName.textContent = `${city}`;
+    resultScreenDiv.style.background = 'url(./images/ash.jpg) no-repeat center center fixed;'
+    weatherMainName.textContent = `${weatherName}`;
     temperatureResult.textContent = `${temperature}`;
     placeResult.textContent = `${city}, ${country}`;
     weatherResult.src = `${iconSrc}`;
@@ -181,15 +178,17 @@ function createWeatherData(data) { //allowing to allocate values by the data der
 
 async function getWeatherData(city) {
     try {
-      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=bbea7694c66d062ebb3f9152bd60caee`, { mode: 'cors' });
-      const data = await response.json();
-      createWeatherData(data);
-      openResultScreen();
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=bbea7694c66d062ebb3f9152bd60caee`, { mode: 'cors' });
+        const data = await response.json();
+        console.log(data);
+        createWeatherData(data);
+        openResultScreen();
     } catch (error) {
         addErrorMessage();
     }
     locationSearchForm.reset();
 }
+
 
 function addErrorMessage() { //allowing to throw an error message if searched place can not be founded
     errorMsg.classList.add('active');
