@@ -158,6 +158,7 @@ function createWeatherData(data) { //allowing to allocate values by the data der
     const iconSrc = `https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${data.weather[0].icon}.svg`;
     
     //Allocating values
+
     setResultDivBackground(weatherName);
     weatherMainName.textContent = `${weatherName}`;
     temperatureResult.textContent = `${temperature}`;
@@ -174,13 +175,10 @@ function createWeatherData(data) { //allowing to allocate values by the data der
     weatherDetailsModalVisibility.textContent = `${visibility} m`;
     weatherDetailsModalSunRise.textContent = `${sunRiseHours}`;
     weatherDetailsModalSunSet.textContent = `${sunSetHours}`;
-    
 }
 
 function setResultDivBackground(weatherName) {
-    
-
-    if(weatherName === 'Ash') {
+    if (weatherName === 'Ash') {
         resultScreenDiv.style.background = "url('./weather\ photos/ash.jpg')";
     } else if (weatherName === 'Clear') {
         resultScreenDiv.style.background = "url('./weather\ photos/clear.jpg')";
@@ -208,16 +206,12 @@ function setResultDivBackground(weatherName) {
         resultScreenDiv.style.background = "url('./weather\ photos/squall.jpg')";
     } else if (weatherName === 'Thunderstorm') {
         resultScreenDiv.style.background = "url('./weather\ photos/thunderstorm.jpg')";
-    }else {
+    } else {
         resultScreenDiv.style.background = "url('./weather\ photos/tornado.jpg')";
     }
-    
     resultScreenDiv.style.backgroundPosition = 'center';
     resultScreenDiv.style.backgroundRepeat = 'no-repeat';
     resultScreenDiv.style.backgroundSize = 'cover';
-    //resultScreenDiv.style.backgroundAttachment = 'fixed';
-
-    
 }
 
 async function getWeatherData(city) {
@@ -231,7 +225,6 @@ async function getWeatherData(city) {
     }
     locationSearchForm.reset();
 }
-
 
 function addErrorMessage() { //allowing to throw an error message if searched place can not be founded
     errorMsg.classList.add('active');
