@@ -201,9 +201,9 @@ function setResultDivBackground(weatherName) {
     } else if (weatherName === 'Smoke') {
         resultScreenDiv.style.background = "url('./weather\ photos/smoke.jpg')";
     } else if (weatherName === 'Snow') {
-        resultScreenDiv.style.background = "url('./weather\ photos/snow.jpg')";
+        resultScreenDiv.style.background = "url('./weather\ photos/snow.webp')";
     } else if (weatherName === 'Squall') {
-        resultScreenDiv.style.background = "url('./weather\ photos/squall.jpg')";
+        resultScreenDiv.style.background = "url('./weather\ photos/squall.webp')";
     } else if (weatherName === 'Thunderstorm') {
         resultScreenDiv.style.background = "url('./weather\ photos/thunderstorm.jpg')";
     } else {
