@@ -201,11 +201,15 @@ label {
     justify-content: center;
     height: calc(83vh - 5em);
     justify-content: center;
-    /*background: url(./images/ash.jpg) no-repeat center center fixed;*/
+    /*background: url(./images/ash.jpg);
+    no-repeat center center fixed;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    -o-background-size: cover;*/
     position: relative;
     animation: fadeIn 0.5s;
 }
