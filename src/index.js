@@ -158,8 +158,20 @@ function createWeatherData(data) { //allowing to allocate values by the data der
     const iconSrc = `https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${data.weather[0].icon}.svg`;
     
     //Allocating values
-    resultScreenDiv.style.background = 'url(./images/ash.jpg) no-repeat center center fixed;'
     weatherMainName.textContent = `${weatherName}`;
+
+    if(weatherName === 'Ash') {
+        resultScreenDiv.style.background = "url('./295db14a4ae22dbe158e.jpg')";
+    } else if (weatherName === 'Clouds') {
+        resultScreenDiv.style.background = "url('./src/images/clouds.jpg')";
+    }
+    
+    resultScreenDiv.style.backgroundAttachment = 'fixed';
+    resultScreenDiv.style.backgroundPosition = 'center';
+    resultScreenDiv.style.backgroundRepeat = 'no-repeat';
+    resultScreenDiv.style.backgroundSize = 'cover';
+
+    
     temperatureResult.textContent = `${temperature}`;
     placeResult.textContent = `${city}, ${country}`;
     weatherResult.src = `${iconSrc}`;
@@ -180,7 +192,6 @@ async function getWeatherData(city) {
     try {
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=bbea7694c66d062ebb3f9152bd60caee`, { mode: 'cors' });
         const data = await response.json();
-        console.log(data);
         createWeatherData(data);
         openResultScreen();
     } catch (error) {
