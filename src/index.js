@@ -187,7 +187,7 @@ function setResultDivBackground(weatherName) {
     } else if (weatherName === 'Drizzle') {
         resultScreenDiv.style.background = "url('./weather\ photos/drizzle.jpg')";
     } else if (weatherName === 'Dust') {
-        resultScreenDiv.style.background = "url('./weather\ photos/dust.jpg')";
+        resultScreenDiv.style.background = "url('./weather\ photos/dust.jpeg')";
     } else if (weatherName === 'Fog') {
         resultScreenDiv.style.background = "url('./weather\ photos/fog.jpg')";
     } else if (weatherName === 'Haze') {
